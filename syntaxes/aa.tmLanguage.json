@@ -15,7 +15,9 @@
 		{ "include": "#alias-expression" },
 		{ "include": "#link-expression" },
 		{ "include": "#allow-expression" },
-		{ "include": "#deny-expression" }
+		{ "include": "#deny-expression" },
+		{ "include": "#owner-expression" },
+		{ "include": "#other-expression" }
 	],
 	"repository": {
 
@@ -142,6 +144,22 @@
 		"deny.action": {
 		"match": "deny",
 		"name": "keyword.other.deny"
+		},
+
+		"owner-expression": {
+		"patterns": [{ "include": "#owner.action" }, { "include": "#permission" }, { "include": "#path" }]
+		},
+		"owner.action": {
+		"match": "owner",
+		"name": "keyword.other.owner"
+		},
+
+		"other-expression": {
+		"patterns": [{ "include": "#other.action" }, { "include": "#permission" }, { "include": "#path" }]
+		},
+		"other.action": {
+		"match": "other",
+		"name": "keyword.other.other"
 		}
 		
 
