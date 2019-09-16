@@ -22,7 +22,7 @@
 	"Network Rule": {
 		"prefix": "netdp",
 		"body": [
-			"network ${1:inet} ${2:tcp}$0"
+			"network ${1|tcp,udp,icmp|} ${2|inet6,inet,unix,vsock,unspec,ax25,ipx,appletalk,netrom,bridge,atmpvc,x25,rose,netbeui,security,key,netlink,packet,ash,econet,atmsvc,rds,sna,irda,pppox,wanpipe,llc,ib,mpls,can,tipc,bluetooth,iucv,rxrpc,isdn,phonet,ieee802154,caif,alg,nfc,kcm,qipcrtr,smc|} ${3|raw,packet,stream,dgram,seqpacket,rdm|}$0"
 		],
 		"description": "Network rule with Domain and Protocol"
 	},
