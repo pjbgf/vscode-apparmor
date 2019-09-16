@@ -1,19 +1,41 @@
 {
   "scopeName": "source.apparmor",
-  "patterns": [{ 
-      "include": "#capability-expression" 
-  }],
+  "patterns": [
+    { "include": "#capability-expression" },
+    { "include": "#network-expression" }
+  ],
   "repository": {
+    
     "capability-expression": {
-      "patterns": [{ "include": "#capability.type" }, { "include": "#capability.value" }]
+      "patterns": [{ "include": "#capability.action" }, { "include": "#capability.value" }]
     },
-    "capability.type": {
+    "capability.action": {
       "match": "capability",
-      "name": "keyword.capability.type"
+      "name": "keyword.capability"
     },
     "capability.value": {
       "match": "audit_control|audit_read|audit_write|block_suspend|chown|dac_override|dac_read_search|fowner|fsetid|ipc_lock|ipc_owner|kill|lease|linux_immutable|mac_admin|mac_override|mknod|net_admin|net_bind_service|net_broadcast|net_raw|setgid|setfcap|setpcap|setuid|sys_admin|sys_boot|sys_chroot|sys_module|sys_nice|sys_pacct|sys_ptrace|sys_rawio|sys_resource|sys_time|sys_tty_config|syslog|wake_alarm",
       "name": "keyword.capability.value"
+    },
+
+    "network-expression": {
+      "patterns": [{ "include": "#network.action" }, { "include": "#network.domain" }, { "include": "#network.type" }, { "include": "#network.protocol" }]
+    },
+    "network.action": {
+      "match": "network",
+      "name": "keyword.network"
+    },
+    "network.domain": {
+      "match": "/b(unspec|unix|inet6|inet|ax25|ipx|appletalk|netrom|bridge|atmpvc|x25|inet6|rose|netbeui|security|key|netlink|packet|ash|econet|atmsvc|rds|sna|irda|pppox|wanpipe|llc|ib|mpls|can|tipc|bluetooth|iucv|rxrpc|isdn|phonet|ieee802154|caif|alg|nfc|vsock|kcm|qipcrtr|smc)",
+      "name": "keyword.network.domain"
+    },
+    "network.type": {
+      "match": "stream|dgram|seqpacket|rdm|raw|packet",
+      "name": "keyword.network.type"
+    },
+    "network.protocol": {
+      "match": "/b(tcp|udp|icmp)",
+      "name": "keyword.network.type"
     }
   }
 }
