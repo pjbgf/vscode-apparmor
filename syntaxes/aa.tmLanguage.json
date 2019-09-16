@@ -13,7 +13,8 @@
 		{ "include": "#capability-expression" },
 		{ "include": "#network-expression" },
 		{ "include": "#alias-expression" },
-		{ "include": "#link-expression" }
+		{ "include": "#link-expression" },
+		{ "include": "#allow-expression" }
 	],
 	"repository": {
 
@@ -111,6 +112,28 @@
 		"link.action": {
 		"match": "link",
 		"name": "keyword.other.link"
+		},
+
+
+		"permission": {
+		"match": "\\b[rwakl]+\\b",
+		"name": "string.regexp.permission"
+		},
+		"path": {
+		"match": "(/[^/ ]*)+/?",
+		"name": "string.unquoted"
+		},
+		"file.action": {
+		"match": "file",
+		"name": "keyword.other.file"
+		},
+
+		"allow-expression": {
+		"patterns": [{ "include": "#allow.action" }, { "include": "#file.action" }, { "include": "#permission" }, { "include": "#path" }]
+		},
+		"allow.action": {
+		"match": "allow",
+		"name": "keyword.other.allow"
 		}
 		
 	}
