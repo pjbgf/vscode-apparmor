@@ -11,11 +11,11 @@
     },
     "capability.action": {
       "match": "capability",
-      "name": "keyword.capability"
+      "name": "keyword.other.capability"
     },
     "capability.value": {
       "match": "audit_control|audit_read|audit_write|block_suspend|chown|dac_override|dac_read_search|fowner|fsetid|ipc_lock|ipc_owner|kill|lease|linux_immutable|mac_admin|mac_override|mknod|net_admin|net_bind_service|net_broadcast|net_raw|setgid|setfcap|setpcap|setuid|sys_admin|sys_boot|sys_chroot|sys_module|sys_nice|sys_pacct|sys_ptrace|sys_rawio|sys_resource|sys_time|sys_tty_config|syslog|wake_alarm",
-      "name": "keyword.capability.value"
+      "name": "support.type.capability.value"
     },
 
     "network-expression": {
@@ -23,19 +23,19 @@
     },
     "network.action": {
       "match": "network",
-      "name": "keyword.network"
+      "name": "keyword.other.network"
     },
     "network.domain": {
       "match": "/b(unspec|unix|inet6|inet|ax25|ipx|appletalk|netrom|bridge|atmpvc|x25|inet6|rose|netbeui|security|key|netlink|packet|ash|econet|atmsvc|rds|sna|irda|pppox|wanpipe|llc|ib|mpls|can|tipc|bluetooth|iucv|rxrpc|isdn|phonet|ieee802154|caif|alg|nfc|vsock|kcm|qipcrtr|smc)",
-      "name": "keyword.network.domain"
+      "name": "support.type.network.domain"
     },
     "network.type": {
       "match": "stream|dgram|seqpacket|rdm|raw|packet",
-      "name": "keyword.network.type"
+      "name": "support.type.network.type"
     },
     "network.protocol": {
       "match": "/b(tcp|udp|icmp)",
-      "name": "keyword.network.type"
+      "name": "support.type.network.protocol"
     }
   }
 }
