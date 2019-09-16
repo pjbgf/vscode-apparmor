@@ -14,7 +14,8 @@
 		{ "include": "#network-expression" },
 		{ "include": "#alias-expression" },
 		{ "include": "#link-expression" },
-		{ "include": "#allow-expression" }
+		{ "include": "#allow-expression" },
+		{ "include": "#deny-expression" }
 	],
 	"repository": {
 
@@ -106,15 +107,6 @@
 		"name": "keyword.other.alias"
 		},
 
-		"link-expression": {
-		"patterns": [{ "include": "#link.action" } ]
-		},
-		"link.action": {
-		"match": "link",
-		"name": "keyword.other.link"
-		},
-
-
 		"permission": {
 		"match": "\\b[rwakl]+\\b",
 		"name": "string.regexp.permission"
@@ -128,13 +120,30 @@
 		"name": "keyword.other.file"
 		},
 
+		"link-expression": {
+		"patterns": [{ "include": "#link.action" }, { "include": "#path" }, { "include": "#path" } ]
+		},
+		"link.action": {
+		"match": "link",
+		"name": "keyword.other.link"
+		},
+
 		"allow-expression": {
 		"patterns": [{ "include": "#allow.action" }, { "include": "#file.action" }, { "include": "#permission" }, { "include": "#path" }]
 		},
 		"allow.action": {
 		"match": "allow",
 		"name": "keyword.other.allow"
+		},
+
+		"deny-expression": {
+		"patterns": [{ "include": "#deny.action" }, { "include": "#file.action" }, { "include": "#permission" }, { "include": "#path" }]
+		},
+		"deny.action": {
+		"match": "deny",
+		"name": "keyword.other.deny"
 		}
 		
+
 	}
 }
