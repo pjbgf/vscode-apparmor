@@ -23,7 +23,9 @@
 		{ "include": "#ptrace-expression" },
 		{ "include": "#signal-expression" },
 		{ "include": "#execution-mode" },
-		{ "include": "#env-variables" }
+		{ "include": "#env-variables" },
+		{ "include": "#safe-expression" },
+		{ "include": "#unsafe-expression" }
 		
 	],
 	"repository": {
@@ -209,6 +211,22 @@
 		"env-variables": {
 		"match": "\\b(GCONV_PATH|GETCONF_DIR|HOSTALIASES|LD_AUDIT|LD_DEBUG|LD_DEBUG_OUTPUT|LD_DYNAMIC_WEAK|LD_LIBRARY_PATH|LD_ORIGIN_PATH|LD_PRELOAD|LD_PROFILE|LD_SHOW_AUXV|LD_USE_LOAD_BIAS|LOCALDOMAIN|LOCPATH|MALLOC_TRACE|NLSPATH|RESOLV_HOST_CONF|RES_OPTIONS|TMPDIR|TZDIR){1}\\b",
 		"name": "support.constant.env-variables"
+		},
+
+		"unsafe-expression": {
+		"patterns": [{ "include": "#unsafe.action" } ]
+		},
+		"unsafe.action": {
+		"match": "unsafe",
+		"name": "keyword.other.unsafe"
+		},
+
+		"safe-expression": {
+		"patterns": [{ "include": "#safe.action" } ]
+		},
+		"safe.action": {
+		"match": "safe",
+		"name": "keyword.other.safe"
 		}
 	
 	}
