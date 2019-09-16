@@ -28,7 +28,7 @@
       "name": "keyword.other.network"
     },
     "network.domain": {
-      "match": "\\b(unspec|unix|inet6|inet|ax25|ipx|appletalk|netrom|bridge|atmpvc|x25|inet6|rose|netbeui|security|key|netlink|packet|ash|econet|atmsvc|rds|sna|irda|pppox|wanpipe|llc|ib|mpls|can|tipc|bluetooth|iucv|rxrpc|isdn|phonet|ieee802154|caif|alg|nfc|vsock|kcm|qipcrtr|smc)\\b",
+      "match": "\\b(unspec|unix|inet6|inet|ax25|ipx|appletalk|netrom|bridge|atmpvc|x25|rose|netbeui|security|key|netlink|packet|ash|econet|atmsvc|rds|sna|irda|pppox|wanpipe|llc|ib|mpls|can|tipc|bluetooth|iucv|rxrpc|isdn|phonet|ieee802154|caif|alg|nfc|vsock|kcm|qipcrtr|smc)\\b",
       "name": "support.type.network.domain"
     },
     "network.type": {
