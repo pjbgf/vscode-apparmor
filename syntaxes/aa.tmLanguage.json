@@ -7,7 +7,8 @@
 		{ "include": "#comments" },
 		{ "include": "#strings-single" },
 		{ "include": "#strings-double" },
-		{ "include": "#variables" },		
+		{ "include": "#variables" },
+		{ "include": "#operators" },		
 
 		{ "include": "#capability-expression" },
 		{ "include": "#network-expression" },
@@ -53,6 +54,12 @@
 			"patterns": [{
 				"name": "variable",
 				"match": "@{(\\w)*}"
+			}]
+		},
+		"operators": {
+			"patterns": [{
+				"name": "keyword.operator",
+				"match": "=|->"
 			}]
 		},
 
