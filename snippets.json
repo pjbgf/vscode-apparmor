@@ -1,17 +1,53 @@
 {
-    // Place your snippets for aa here. Each snippet is defined under a snippet name and has a prefix, body and 
-	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
-	// same ids are connected.
 	"New Empty Profile": {
 		"prefix": "empty",
 		"body": [
 			"#include <tunables/global>",
             "",
-            "${1:/path/to/application} flags=(${2:flag}) {",
+            "${1:/path/to/application} flags=(${2:complain}) {",
             "$0",
             "}"
 		],
 		"description": "Empty profile"
+	},
+
+	"Audit Rule": {
+		"prefix": "audit",
+		"body": [
+			"audit ${1:/path/to/audit/**} ${2:rw}$0"
+		],
+		"description": "Audit rule"
+	},
+
+	"Network Rule": {
+		"prefix": "netdp",
+		"body": [
+			"network ${1:inet} ${2:tcp}$0"
+		],
+		"description": "Network rule with Domain and Protocol"
+	},
+
+	"Alias Rule": {
+		"prefix": "alias",
+		"body": [
+			"alias ${1:/home/} -> ${2:/usr/home/}$0"
+		],
+		"description": "Alias rule to manipulate path mappings"
+	},
+
+	"Allow Access Rule": {
+		"prefix": "allowf",
+		"body": [
+			"allow file ${1:/path/to/file_or_folder} ${2:rw}$0"
+		],
+		"description": "Allow access rule"
+	},
+
+	"Deny Access Rule": {
+		"prefix": "denyf",
+		"body": [
+			"deny file ${1:/path/to/file_or_folder} ${2:rw}$0"
+		],
+		"description": "Deny access rule"
 	}
 }
