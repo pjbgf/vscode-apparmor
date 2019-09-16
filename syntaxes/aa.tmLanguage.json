@@ -18,7 +18,9 @@
 		{ "include": "#deny-expression" },
 		{ "include": "#owner-expression" },
 		{ "include": "#other-expression" },
-		{ "include": "#mount-expression" }
+		{ "include": "#mount-expression" },
+		{ "include": "#pivotroot-expression" }
+		
 	],
 	"repository": {
 
@@ -169,8 +171,16 @@
 		"mount.action": {
 		"match": "mount",
 		"name": "keyword.other.mount"
+		},
+
+		"pivotroot-expression": {
+		"patterns": [{ "include": "#pivotroot.action" } ]
+		},
+		"pivotroot.action": {
+		"match": "pivot_root",
+		"name": "keyword.other.pivotroot"
 		}
 		
-
+		
 	}
 }
