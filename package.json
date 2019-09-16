@@ -1,0 +1,46 @@
+{
+    "name": "apparmor",
+    "author": "Paulo Gomes (pjbgf)",
+    "displayName": "AppArmor",
+    "description": "AppArmor support for Visual Studio Code.",
+    "version": "0.0.1",
+    "icon": "images/apparmor.png",
+    "license": "MIT License", 
+    "preview": false,
+    "bugs": {
+      "url": "https://github.com/pjbgf/apparmor/issues"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/pjbgf/apparmor.git"
+    },
+    "keywords": [
+        "apparmor",
+        "linux security",
+        "profiles"
+    ],
+    "engines": {
+        "vscode": "^1.38.0"
+    },
+    "categories": [
+        "Programming Languages",
+		"Snippets"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "aa",
+            "aliases": ["AppArmor", "aa"],
+            "extensions": [".profile",".*"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "aa",
+            "scopeName": "source.apparmor",
+            "path": "./syntaxes/aa.tmLanguage.json"
+        }],
+        "snippets": [{
+        "language": "aa",
+        "path": "./snippets.json"
+        }]
+    }
+}

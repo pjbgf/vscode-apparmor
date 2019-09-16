@@ -1,0 +1,41 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "AppArmor",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.aa",
+				"match": "\\b(capability|link|profile|network|mount)\\b"
+			}]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comments.control.aa",
+				"match": "\\b#"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.aa",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.aa",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.apparmor"
+}
