@@ -16,7 +16,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.aa",
-				"match": "\\b(capability|link|profile|network|mount)\\b"
+				"match": "\\b(capability|link|profile|network|mount|profile|include|unix)\\b"
 			}]
 		},
 		"comments": {

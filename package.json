@@ -37,6 +37,11 @@
             "language": "aa",
             "scopeName": "source.apparmor",
             "path": "./syntaxes/aa.tmLanguage.json"
+        },
+        {
+          "language": "aa",
+          "scopeName": "source.apparmor",
+          "path": "./syntaxes/apparmor.tmGrammar.json"
         }],
         "snippets": [{
         "language": "aa",
