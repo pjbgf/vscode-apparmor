@@ -20,7 +20,8 @@
 		{ "include": "#other-expression" },
 		{ "include": "#mount-expression" },
 		{ "include": "#pivotroot-expression" },
-		{ "include": "#ptrace-expression" }
+		{ "include": "#ptrace-expression" },
+		{ "include": "#signal-expression" }
 		
 	],
 	"repository": {
@@ -188,6 +189,14 @@
 		"ptrace.action": {
 		"match": "ptrace",
 		"name": "keyword.other.ptrace"
+		},
+
+		"signal-expression": {
+		"patterns": [{ "include": "#signal.action" } ]
+		},
+		"signal.action": {
+		"match": "signal",
+		"name": "keyword.other.signal"
 		}
 		
 		
