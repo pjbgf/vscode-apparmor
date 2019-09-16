@@ -19,7 +19,8 @@
 		{ "include": "#owner-expression" },
 		{ "include": "#other-expression" },
 		{ "include": "#mount-expression" },
-		{ "include": "#pivotroot-expression" }
+		{ "include": "#pivotroot-expression" },
+		{ "include": "#ptrace-expression" }
 		
 	],
 	"repository": {
@@ -179,6 +180,14 @@
 		"pivotroot.action": {
 		"match": "pivot_root",
 		"name": "keyword.other.pivotroot"
+		},
+
+		"ptrace-expression": {
+		"patterns": [{ "include": "#ptrace.action" } ]
+		},
+		"ptrace.action": {
+		"match": "ptrace",
+		"name": "keyword.other.ptrace"
 		}
 		
 		
