@@ -136,7 +136,7 @@
 		"name": "string.unquoted"
 		},
 		"file.action": {
-		"match": "file",
+		"match": "\\bfile\\b",
 		"name": "keyword.other.file"
 		},
 
