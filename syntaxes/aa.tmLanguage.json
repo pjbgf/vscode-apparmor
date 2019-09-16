@@ -17,7 +17,8 @@
 		{ "include": "#allow-expression" },
 		{ "include": "#deny-expression" },
 		{ "include": "#owner-expression" },
-		{ "include": "#other-expression" }
+		{ "include": "#other-expression" },
+		{ "include": "#mount-expression" }
 	],
 	"repository": {
 
@@ -160,6 +161,14 @@
 		"other.action": {
 		"match": "other",
 		"name": "keyword.other.other"
+		},
+
+		"mount-expression": {
+		"patterns": [{ "include": "#mount.action" } ]
+		},
+		"mount.action": {
+		"match": "mount",
+		"name": "keyword.other.mount"
 		}
 		
 
