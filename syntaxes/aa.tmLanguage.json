@@ -7,6 +7,7 @@
 		{ "include": "#comments" },
 		{ "include": "#strings-single" },
 		{ "include": "#strings-double" },
+		{ "include": "#variables" },		
 
 		{ "include": "#capability-expression" },
 		{ "include": "#network-expression" }
@@ -47,6 +48,13 @@
 				}
 			]
 		},
+		"variables": {
+			"patterns": [{
+				"name": "variable",
+				"match": "@{(\\w)*}"
+			}]
+		},
+
 
 		"capability-expression": {
 		"patterns": [{ "include": "#capability.action" }, { "include": "#capability.value" }]
