@@ -1,41 +1,84 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "AppArmor",
+	"scopeName": "source.apparmor",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#comments"
-		}
+		{ "include": "#include" },
+		{ "include": "#comments" },
+		{ "include": "#strings-single" },
+		{ "include": "#strings-double" },
+
+		{ "include": "#capability-expression" },
+		{ "include": "#network-expression" }
 	],
 	"repository": {
-		"keywords": {
+
+		"include": {
 			"patterns": [{
-				"name": "keyword.control.aa",
-				"match": "\\b(capability|link|profile|network|mount|profile|include|unix)\\b"
+				"name": "constant.language.include",
+				"match": "^(\\s)*(#){0,1}include"
 			}]
 		},
 		"comments": {
 			"patterns": [{
-				"name": "comments.control.aa",
-				"match": "\\b#"
+				"name": "comment.line.number-sign",
+				"match": "#(\\s|\\S)*$"
 			}]
 		},
-		"strings": {
+		"strings-single": {
+			"name": "string.quoted.single.aa",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.aa",
+					"match": "\\."
+				}
+			]
+		},
+		"strings-double": {
 			"name": "string.quoted.double.aa",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
 					"name": "constant.character.escape.aa",
-					"match": "\\\\."
+					"match": "\\."
 				}
 			]
+		},
+
+		"capability-expression": {
+		"patterns": [{ "include": "#capability.action" }, { "include": "#capability.value" }]
+		},
+		"capability.action": {
+		"match": "capability",
+		"name": "keyword.other.capability"
+		},
+		"capability.value": {
+		"match": "\\b(audit_control|audit_read|audit_write|block_suspend|chown|dac_override|dac_read_search|fowner|fsetid|ipc_lock|ipc_owner|kill|lease|linux_immutable|mac_admin|mac_override|mknod|net_admin|net_bind_service|net_broadcast|net_raw|setgid|setfcap|setpcap|setuid|sys_admin|sys_boot|sys_chroot|sys_module|sys_nice|sys_pacct|sys_ptrace|sys_rawio|sys_resource|sys_time|sys_tty_config|syslog|wake_alarm)\\b",
+		"name": "support.type.capability.value"
+		},
+
+		"network-expression": {
+		"patterns": [{ "include": "#network.action" }, { "include": "#network.domain" }, { "include": "#network.type" }, { "include": "#network.protocol" }]
+		},
+		"network.action": {
+		"match": "network",
+		"name": "keyword.other.network"
+		},
+		"network.domain": {
+		"match": "\\b(unspec|unix|inet6|inet|ax25|ipx|appletalk|netrom|bridge|atmpvc|x25|inet6|rose|netbeui|security|key|netlink|packet|ash|econet|atmsvc|rds|sna|irda|pppox|wanpipe|llc|ib|mpls|can|tipc|bluetooth|iucv|rxrpc|isdn|phonet|ieee802154|caif|alg|nfc|vsock|kcm|qipcrtr|smc)\\b",
+		"name": "support.type.network.domain"
+		},
+		"network.type": {
+		"match": "\\b(stream|dgram|seqpacket|rdm|raw|packet)\\b",
+		"name": "support.type.network.type"
+		},
+		"network.protocol": {
+		"match": "\\b(tcp|udp|icmp)\\b",
+		"name": "support.type.network.protocol"
 		}
-	},
-	"scopeName": "source.apparmor"
+		
+	}
 }
