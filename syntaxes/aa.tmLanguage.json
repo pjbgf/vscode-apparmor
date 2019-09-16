@@ -10,7 +10,8 @@
 		{ "include": "#variables" },		
 
 		{ "include": "#capability-expression" },
-		{ "include": "#network-expression" }
+		{ "include": "#network-expression" },
+		{ "include": "#alias-expression" }
 	],
 	"repository": {
 
@@ -86,6 +87,14 @@
 		"network.protocol": {
 		"match": "\\b(tcp|udp|icmp)\\b",
 		"name": "support.type.network.protocol"
+		},
+
+		"alias-expression": {
+		"patterns": [{ "include": "#alias.action" } ]
+		},
+		"alias.action": {
+		"match": "alias",
+		"name": "keyword.other.alias"
 		}
 		
 	}
