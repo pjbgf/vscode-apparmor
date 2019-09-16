@@ -12,7 +12,8 @@
 
 		{ "include": "#capability-expression" },
 		{ "include": "#network-expression" },
-		{ "include": "#alias-expression" }
+		{ "include": "#alias-expression" },
+		{ "include": "#link-expression" }
 	],
 	"repository": {
 
@@ -102,6 +103,14 @@
 		"alias.action": {
 		"match": "alias",
 		"name": "keyword.other.alias"
+		},
+
+		"link-expression": {
+		"patterns": [{ "include": "#link.action" } ]
+		},
+		"link.action": {
+		"match": "link",
+		"name": "keyword.other.link"
 		}
 		
 	}
