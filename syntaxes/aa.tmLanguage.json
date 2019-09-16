@@ -3,47 +3,98 @@
 	"name": "AppArmor",
 	"scopeName": "source.apparmor",
 	"patterns": [
-		{ "include": "#include" },
-		{ "include": "#comments" },
-		{ "include": "#strings-single" },
-		{ "include": "#strings-double" },
-		{ "include": "#variables" },
-		{ "include": "#operators" },
-		{ "include": "#numbers" },		
-
-		{ "include": "#capability-expression" },
-		{ "include": "#network-expression" },
-		{ "include": "#alias-expression" },
-		{ "include": "#link-expression" },
-		{ "include": "#allow-expression" },
-		{ "include": "#deny-expression" },
-		{ "include": "#owner-expression" },
-		{ "include": "#other-expression" },
-		{ "include": "#mount-expression" },
-		{ "include": "#pivotroot-expression" },
-		{ "include": "#ptrace-expression" },
-		{ "include": "#signal-expression" },
-		{ "include": "#execution-mode" },
-		{ "include": "#env-variables" },
-		{ "include": "#safe-expression" },
-		{ "include": "#unsafe-expression" },
-		{ "include": "#audit-expression" },
-		{ "include": "#resource-limit-expression" }
-		
+		{
+			"include": "#include"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#strings-single"
+		},
+		{
+			"include": "#strings-double"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#capability-expression"
+		},
+		{
+			"include": "#network-expression"
+		},
+		{
+			"include": "#alias-expression"
+		},
+		{
+			"include": "#link-expression"
+		},
+		{
+			"include": "#allow-expression"
+		},
+		{
+			"include": "#deny-expression"
+		},
+		{
+			"include": "#owner-expression"
+		},
+		{
+			"include": "#other-expression"
+		},
+		{
+			"include": "#mount-expression"
+		},
+		{
+			"include": "#pivotroot-expression"
+		},
+		{
+			"include": "#ptrace-expression"
+		},
+		{
+			"include": "#signal-expression"
+		},
+		{
+			"include": "#execution-mode"
+		},
+		{
+			"include": "#env-variables"
+		},
+		{
+			"include": "#safe-expression"
+		},
+		{
+			"include": "#unsafe-expression"
+		},
+		{
+			"include": "#audit-expression"
+		},
+		{
+			"include": "#resource-limit-expression"
+		}
 	],
 	"repository": {
-
 		"include": {
-			"patterns": [{
-				"name": "constant.language.include",
-				"match": "^(\\s)*(#){0,1}include"
-			}]
+			"patterns": [
+				{
+					"name": "constant.language.include",
+					"match": "^(\\s)*(#){0,1}include"
+				}
+			]
 		},
 		"comments": {
-			"patterns": [{
-				"name": "comment.line.number-sign",
-				"match": "#(\\s|\\S)*$"
-			}]
+			"patterns": [
+				{
+					"name": "comment.line.number-sign",
+					"match": "#(\\s|\\S)*$"
+				}
+			]
 		},
 		"strings-single": {
 			"name": "string.quoted.single.aa",
@@ -68,199 +119,302 @@
 			]
 		},
 		"variables": {
-			"patterns": [{
-				"name": "variable",
-				"match": "@{(\\w)*}"
-			}]
+			"patterns": [
+				{
+					"name": "variable",
+					"match": "@{(\\w)*}"
+				}
+			]
 		},
 		"operators": {
-			"patterns": [{
-				"name": "keyword.operator",
-				"match": "=|->|<=|>="
-			}]
+			"patterns": [
+				{
+					"name": "keyword.operator",
+					"match": "=|->|<=|>="
+				}
+			]
 		},
 		"numbers": {
-			"patterns": [{
-				"name": "constant.numeric.numbers",
-				"match": "\\d+"
-			}]
+			"patterns": [
+				{
+					"name": "constant.numeric.numbers",
+					"match": "\\d+"
+				}
+			]
 		},
-
-
 		"capability-expression": {
-		"patterns": [{ "include": "#capability.action" }, { "include": "#capability.value" }]
+			"patterns": [
+				{
+					"include": "#capability.action"
+				},
+				{
+					"include": "#capability.value"
+				}
+			]
 		},
 		"capability.action": {
-		"match": "capability",
-		"name": "keyword.other.capability"
+			"match": "capability",
+			"name": "keyword.other.capability"
 		},
 		"capability.value": {
-		"match": "\\b(audit_control|audit_read|audit_write|block_suspend|chown|dac_override|dac_read_search|fowner|fsetid|ipc_lock|ipc_owner|kill|lease|linux_immutable|mac_admin|mac_override|mknod|net_admin|net_bind_service|net_broadcast|net_raw|setgid|setfcap|setpcap|setuid|sys_admin|sys_boot|sys_chroot|sys_module|sys_nice|sys_pacct|sys_ptrace|sys_rawio|sys_resource|sys_time|sys_tty_config|syslog|wake_alarm)\\b",
-		"name": "support.type.capability.value"
+			"match": "\\b(audit_control|audit_read|audit_write|block_suspend|chown|dac_override|dac_read_search|fowner|fsetid|ipc_lock|ipc_owner|kill|lease|linux_immutable|mac_admin|mac_override|mknod|net_admin|net_bind_service|net_broadcast|net_raw|setgid|setfcap|setpcap|setuid|sys_admin|sys_boot|sys_chroot|sys_module|sys_nice|sys_pacct|sys_ptrace|sys_rawio|sys_resource|sys_time|sys_tty_config|syslog|wake_alarm)\\b",
+			"name": "support.type.capability.value"
 		},
-
 		"network-expression": {
-		"patterns": [{ "include": "#network.action" }, { "include": "#network.domain" }, { "include": "#network.type" }, { "include": "#network.protocol" }]
+			"patterns": [
+				{
+					"include": "#network.action"
+				},
+				{
+					"include": "#network.domain"
+				},
+				{
+					"include": "#network.type"
+				},
+				{
+					"include": "#network.protocol"
+				}
+			]
 		},
 		"network.action": {
-		"match": "network",
-		"name": "keyword.other.network"
+			"match": "network",
+			"name": "keyword.other.network"
 		},
 		"network.domain": {
-		"match": "\\b(unspec|unix|inet6|inet|ax25|ipx|appletalk|netrom|bridge|atmpvc|x25|inet6|rose|netbeui|security|key|netlink|packet|ash|econet|atmsvc|rds|sna|irda|pppox|wanpipe|llc|ib|mpls|can|tipc|bluetooth|iucv|rxrpc|isdn|phonet|ieee802154|caif|alg|nfc|vsock|kcm|qipcrtr|smc)\\b",
-		"name": "support.type.network.domain"
+			"match": "\\b(unspec|unix|inet6|inet|ax25|ipx|appletalk|netrom|bridge|atmpvc|x25|inet6|rose|netbeui|security|key|netlink|packet|ash|econet|atmsvc|rds|sna|irda|pppox|wanpipe|llc|ib|mpls|can|tipc|bluetooth|iucv|rxrpc|isdn|phonet|ieee802154|caif|alg|nfc|vsock|kcm|qipcrtr|smc)\\b",
+			"name": "support.type.network.domain"
 		},
 		"network.type": {
-		"match": "\\b(stream|dgram|seqpacket|rdm|raw|packet)\\b",
-		"name": "support.type.network.type"
+			"match": "\\b(stream|dgram|seqpacket|rdm|raw|packet)\\b",
+			"name": "support.type.network.type"
 		},
 		"network.protocol": {
-		"match": "\\b(tcp|udp|icmp)\\b",
-		"name": "support.type.network.protocol"
+			"match": "\\b(tcp|udp|icmp)\\b",
+			"name": "support.type.network.protocol"
 		},
-
 		"alias-expression": {
-		"patterns": [{ "include": "#alias.action" } ]
+			"patterns": [
+				{
+					"include": "#alias.action"
+				}
+			]
 		},
 		"alias.action": {
-		"match": "alias",
-		"name": "keyword.other.alias"
+			"match": "alias",
+			"name": "keyword.other.alias"
 		},
-
 		"permission": {
-		"match": "\\b[rwakl]+\\b",
-		"name": "string.regexp.permission"
+			"match": "\\b[rwakl]+\\b",
+			"name": "string.regexp.permission"
 		},
 		"path": {
-		"match": "(/[^/ ]*)+/?",
-		"name": "string.unquoted"
+			"match": "(/[^/ ]*)+/?",
+			"name": "string.unquoted"
 		},
 		"file.action": {
-		"match": "\\bfile\\b",
-		"name": "keyword.other.file"
+			"match": "\\bfile\\b",
+			"name": "keyword.other.file"
 		},
-
 		"link-expression": {
-		"patterns": [{ "include": "#link.action" }, { "include": "#path" }, { "include": "#path" } ]
+			"patterns": [
+				{
+					"include": "#link.action"
+				},
+				{
+					"include": "#path"
+				},
+				{
+					"include": "#path"
+				}
+			]
 		},
 		"link.action": {
-		"match": "link",
-		"name": "keyword.other.link"
+			"match": "link",
+			"name": "keyword.other.link"
 		},
-
 		"allow-expression": {
-		"patterns": [{ "include": "#allow.action" }, { "include": "#file.action" }, { "include": "#permission" }, { "include": "#path" }]
+			"patterns": [
+				{
+					"include": "#allow.action"
+				},
+				{
+					"include": "#file.action"
+				},
+				{
+					"include": "#permission"
+				},
+				{
+					"include": "#path"
+				}
+			]
 		},
 		"allow.action": {
-		"match": "allow",
-		"name": "keyword.other.allow"
+			"match": "allow",
+			"name": "keyword.other.allow"
 		},
-
 		"deny-expression": {
-		"patterns": [{ "include": "#deny.action" }, { "include": "#file.action" }, { "include": "#permission" }, { "include": "#path" }]
+			"patterns": [
+				{
+					"include": "#deny.action"
+				},
+				{
+					"include": "#file.action"
+				},
+				{
+					"include": "#permission"
+				},
+				{
+					"include": "#path"
+				}
+			]
 		},
 		"deny.action": {
-		"match": "deny",
-		"name": "keyword.other.deny"
+			"match": "deny",
+			"name": "keyword.other.deny"
 		},
-
 		"owner-expression": {
-		"patterns": [{ "include": "#owner.action" }, { "include": "#permission" }, { "include": "#path" }]
+			"patterns": [
+				{
+					"include": "#owner.action"
+				},
+				{
+					"include": "#permission"
+				},
+				{
+					"include": "#path"
+				}
+			]
 		},
 		"owner.action": {
-		"match": "owner",
-		"name": "keyword.other.owner"
+			"match": "owner",
+			"name": "keyword.other.owner"
 		},
-
 		"other-expression": {
-		"patterns": [{ "include": "#other.action" }, { "include": "#permission" }, { "include": "#path" }]
+			"patterns": [
+				{
+					"include": "#other.action"
+				},
+				{
+					"include": "#permission"
+				},
+				{
+					"include": "#path"
+				}
+			]
 		},
 		"other.action": {
-		"match": "other",
-		"name": "keyword.other.other"
+			"match": "other",
+			"name": "keyword.other.other"
 		},
-
 		"mount-expression": {
-		"patterns": [{ "include": "#mount.action" } ]
+			"patterns": [
+				{
+					"include": "#mount.action"
+				}
+			]
 		},
 		"mount.action": {
-		"match": "mount",
-		"name": "keyword.other.mount"
+			"match": "mount",
+			"name": "keyword.other.mount"
 		},
-
 		"pivotroot-expression": {
-		"patterns": [{ "include": "#pivotroot.action" } ]
+			"patterns": [
+				{
+					"include": "#pivotroot.action"
+				}
+			]
 		},
 		"pivotroot.action": {
-		"match": "pivot_root",
-		"name": "keyword.other.pivotroot"
+			"match": "pivot_root",
+			"name": "keyword.other.pivotroot"
 		},
-
 		"ptrace-expression": {
-		"patterns": [{ "include": "#ptrace.action" } ]
+			"patterns": [
+				{
+					"include": "#ptrace.action"
+				}
+			]
 		},
 		"ptrace.action": {
-		"match": "ptrace",
-		"name": "keyword.other.ptrace"
+			"match": "ptrace",
+			"name": "keyword.other.ptrace"
 		},
-
 		"signal-expression": {
-		"patterns": [{ "include": "#signal.action" } ]
+			"patterns": [
+				{
+					"include": "#signal.action"
+				}
+			]
 		},
 		"signal.action": {
-		"match": "signal",
-		"name": "keyword.other.signal"
+			"match": "signal",
+			"name": "keyword.other.signal"
 		},
-		
 		"execution-mode": {
-		"match": "\\b(Px|px|Cx|cx|Ux|ux|ix|m|Cix|cix|Pix|pix)+\\b",
-		"name": "string.regexp.execution-mode"
+			"match": "\\b(Px|px|Cx|cx|Ux|ux|ix|m|Cix|cix|Pix|pix)+\\b",
+			"name": "string.regexp.execution-mode"
 		},
-		
 		"env-variables": {
-		"match": "\\b(GCONV_PATH|GETCONF_DIR|HOSTALIASES|LD_AUDIT|LD_DEBUG|LD_DEBUG_OUTPUT|LD_DYNAMIC_WEAK|LD_LIBRARY_PATH|LD_ORIGIN_PATH|LD_PRELOAD|LD_PROFILE|LD_SHOW_AUXV|LD_USE_LOAD_BIAS|LOCALDOMAIN|LOCPATH|MALLOC_TRACE|NLSPATH|RESOLV_HOST_CONF|RES_OPTIONS|TMPDIR|TZDIR){1}\\b",
-		"name": "support.constant.env-variables"
+			"match": "\\b(GCONV_PATH|GETCONF_DIR|HOSTALIASES|LD_AUDIT|LD_DEBUG|LD_DEBUG_OUTPUT|LD_DYNAMIC_WEAK|LD_LIBRARY_PATH|LD_ORIGIN_PATH|LD_PRELOAD|LD_PROFILE|LD_SHOW_AUXV|LD_USE_LOAD_BIAS|LOCALDOMAIN|LOCPATH|MALLOC_TRACE|NLSPATH|RESOLV_HOST_CONF|RES_OPTIONS|TMPDIR|TZDIR){1}\\b",
+			"name": "support.constant.env-variables"
 		},
-
 		"unsafe-expression": {
-		"patterns": [{ "include": "#unsafe.action" } ]
+			"patterns": [
+				{
+					"include": "#unsafe.action"
+				}
+			]
 		},
 		"unsafe.action": {
-		"match": "unsafe",
-		"name": "keyword.other.unsafe"
+			"match": "unsafe",
+			"name": "keyword.other.unsafe"
 		},
-
 		"safe-expression": {
-		"patterns": [{ "include": "#safe.action" } ]
+			"patterns": [
+				{
+					"include": "#safe.action"
+				}
+			]
 		},
 		"safe.action": {
-		"match": "safe",
-		"name": "keyword.other.safe"
+			"match": "safe",
+			"name": "keyword.other.safe"
 		},
-
 		"audit-expression": {
-		"patterns": [{ "include": "#audit.action" } ]
+			"patterns": [
+				{
+					"include": "#audit.action"
+				}
+			]
 		},
 		"audit.action": {
-		"match": "audit",
-		"name": "keyword.other.audit"
+			"match": "audit",
+			"name": "keyword.other.audit"
 		},
-
 		"resource-limit-expression": {
-		"patterns": [{ "include": "#resource-limit.set" }, { "include": "#resource-limit.action" }, { "include": "#resource-limit.resource" } ]
+			"patterns": [
+				{
+					"include": "#resource-limit.set"
+				},
+				{
+					"include": "#resource-limit.action"
+				},
+				{
+					"include": "#resource-limit.resource"
+				}
+			]
 		},
 		"resource-limit.set": {
-		"match": "set",
-		"name": "keyword.other.resource-limit.set"
+			"match": "set",
+			"name": "keyword.other.resource-limit.set"
 		},
 		"resource-limit.action": {
-		"match": "rlimit",
-		"name": "keyword.other.resource-limit"
+			"match": "rlimit",
+			"name": "keyword.other.resource-limit"
 		},
 		"resource-limit.resource": {
-		"match": "\\b(cpu|fsize|data|stack|core|rss|as|memlock|msgqueue|nofile|locks|sigpending|nproc*|rtprio|nice)\\b",
-		"name": "keyword.other.resource-limit.resource"
+			"match": "\\b(cpu|fsize|data|stack|core|rss|as|memlock|msgqueue|nofile|locks|sigpending|nproc*|rtprio|nice)\\b",
+			"name": "keyword.other.resource-limit.resource"
 		}
-
 	}
 }
