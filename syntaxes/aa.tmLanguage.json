@@ -8,7 +8,7 @@
 		{ "include": "#strings-single" },
 		{ "include": "#strings-double" },
 		{ "include": "#variables" },
-		{ "include": "#operators" },		
+		{ "include": "#operators" },
 
 		{ "include": "#capability-expression" },
 		{ "include": "#network-expression" },
@@ -21,7 +21,9 @@
 		{ "include": "#mount-expression" },
 		{ "include": "#pivotroot-expression" },
 		{ "include": "#ptrace-expression" },
-		{ "include": "#signal-expression" }
+		{ "include": "#signal-expression" },
+		{ "include": "#execution-mode" },
+		{ "include": "#env-variables" }
 		
 	],
 	"repository": {
@@ -197,8 +199,17 @@
 		"signal.action": {
 		"match": "signal",
 		"name": "keyword.other.signal"
+		},
+		
+		"execution-mode": {
+		"match": "\\b(Px|px|Cx|cx|Ux|ux|ix|m|Cix|cix|Pix|pix)+\\b",
+		"name": "string.regexp.execution-mode"
+		},
+		
+		"env-variables": {
+		"match": "\\b(GCONV_PATH|GETCONF_DIR|HOSTALIASES|LD_AUDIT|LD_DEBUG|LD_DEBUG_OUTPUT|LD_DYNAMIC_WEAK|LD_LIBRARY_PATH|LD_ORIGIN_PATH|LD_PRELOAD|LD_PROFILE|LD_SHOW_AUXV|LD_USE_LOAD_BIAS|LOCALDOMAIN|LOCPATH|MALLOC_TRACE|NLSPATH|RESOLV_HOST_CONF|RES_OPTIONS|TMPDIR|TZDIR){1}\\b",
+		"name": "support.constant.env-variables"
 		}
-		
-		
+	
 	}
 }
