@@ -149,6 +149,9 @@
 				},
 				{
 					"include": "#capability.value"
+				},
+				{
+					"include": "#capability.dangerous.value"
 				}
 			]
 		},
@@ -157,8 +160,12 @@
 			"name": "keyword.other.capability"
 		},
 		"capability.value": {
-			"match": "\\b(audit_control|audit_read|audit_write|block_suspend|chown|dac_override|dac_read_search|fowner|fsetid|ipc_lock|ipc_owner|kill|lease|linux_immutable|mac_admin|mac_override|mknod|net_admin|net_bind_service|net_broadcast|net_raw|setgid|setfcap|setpcap|setuid|sys_admin|sys_boot|sys_chroot|sys_module|sys_nice|sys_pacct|sys_ptrace|sys_rawio|sys_resource|sys_time|sys_tty_config|syslog|wake_alarm)\\b",
+			"match": "\\b(audit_read|block_suspend|chown|dac_override|dac_read_search|fowner|fsetid|ipc_lock|ipc_owner|kill|lease|linux_immutable|mknod|net_admin|net_bind_service|net_broadcast|net_raw|setgid|setpcap|setuid|sys_boot|sys_chroot|sys_nice|sys_pacct|sys_ptrace|sys_resource|sys_time|sys_tty_config|syslog|wake_alarm)\\b",
 			"name": "support.type.capability.value"
+		},
+		"capability.dangerous.value": {
+			"match": "\\b(audit_control|audit_write|mac_admin|mac_override|setfcap|sys_admin|sys_rawio|sys_module)\\b",
+			"name": "invalid.dangerous.capability.value"
 		},
 		"network-expression": {
 			"patterns": [
