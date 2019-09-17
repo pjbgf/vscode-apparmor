@@ -1,6 +1,6 @@
 {
     "name": "apparmor",
-    "publisher": "pjbgf", 
+    "publisher": "pjbgf",
     "author": "Paulo Gomes (pjbgf)",
     "displayName": "AppArmor",
     "description": "AppArmor support for Visual Studio Code.",
@@ -9,11 +9,11 @@
     "license": "MIT License", 
     "preview": false,
     "bugs": {
-      "url": "https://github.com/pjbgf/apparmor/issues"
+      "url": "https://github.com/pjbgf/vscode-apparmor/issues"
     },
     "repository": {
       "type": "git",
-      "url": "https://github.com/pjbgf/apparmor.git"
+      "url": "https://github.com/pjbgf/vscode-apparmor.git"
     },
     "keywords": [
         "apparmor",
