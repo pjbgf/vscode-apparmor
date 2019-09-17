@@ -11,6 +11,7 @@ VS Extension to integrate [AppArmor](https://gitlab.com/apparmor/apparmor/wikis/
     - Deny/Allow file rules
     - Audit rules
     - Empty policy files
+- Highlighting of dangerous capabilities
 
 
 

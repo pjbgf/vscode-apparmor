@@ -4,7 +4,7 @@
     "author": "Paulo Gomes (pjbgf)",
     "displayName": "AppArmor",
     "description": "AppArmor support for Visual Studio Code.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "icon": "images/apparmor.png",
     "license": "MIT License", 
     "preview": false,
