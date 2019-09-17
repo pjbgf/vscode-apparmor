@@ -1,5 +1,6 @@
 {
     "name": "apparmor",
+    "publisher": "pjbgf", 
     "author": "Paulo Gomes (pjbgf)",
     "displayName": "AppArmor",
     "description": "AppArmor support for Visual Studio Code.",
